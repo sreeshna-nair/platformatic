@@ -48,10 +48,10 @@ expectType<SQLMapperPluginInterface>(await connect({
   connectionString: '', hooks: {
     Page: {
       async find(options: any): Promise<any[]> { return [] },
-      async insert(options: { inputs: any[], fields?: string[] }): Promise<any[]> { return [] },
-      async save(options: { input: any, fields?: string[] }): Promise<any> { return {} },
-      async delete(options?: { where: WhereCondition, fields: string[] }): Promise<any[]> { return [] },
-      async count(options?: { where?: WhereCondition }): Promise<number> { return 0 },
+      async insert(options: { inputs: any[], fields?: string[], tx?: Database }): Promise<any[]> { return [] },
+      async save(options: { input: any, fields?: string[], tx?: Database }): Promise<any> { return {} },
+      async delete(options?: { where: WhereCondition, fields: string[], tx?: Database }): Promise<any[]> { return [] },
+      async count(options?: { where?: WhereCondition, tx?: Database }): Promise<number> { return 0 },
     }
   }
 }))
